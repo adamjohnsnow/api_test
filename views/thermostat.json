@@ -1,1 +1,1 @@
-[{"temperature": 18, "minTemperature": 10, "powerSave": {"isOn": true, "maxTemperature": 25}}]
+[{"temperature": 18, "powerSave": true}]
