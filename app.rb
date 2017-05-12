@@ -2,6 +2,7 @@ require 'sinatra/base'
 
 class ThermostatApi < Sinatra::Base
   get '/thermostat' do
-    erb(:thermostat)
+    content_type :json
+    File.read('views/thermostat.json')
   end
 end
