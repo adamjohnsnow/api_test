@@ -1,7 +1,7 @@
 require 'sinatra/base'
 
 class ThermostatApi < Sinatra::Base
-  get '/' do
+  get '/thermostat' do
     erb(:thermostat)
   end
 end
