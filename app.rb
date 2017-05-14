@@ -11,10 +11,11 @@ class ThermostatApi < Sinatra::Base
     File.read('views/thermostat.json')
   end
 
-  post '/save_thermostat' do
+  get '/save_thermostat' do
+    p params
   jsonHash = {
-      "temperature" => params[temperature],
-      "powerSave" => params[powerSave]
+      "temperature" => params["temperature"],
+      "powerSave" => params["powerSave"]
   }
   File.open("views/thermostat.json","w") do |f|
     f.write(jsonHash.to_json)
