@@ -13,12 +13,17 @@ class ThermostatApi < Sinatra::Base
 
   get '/save_thermostat' do
     p params
-  jsonHash = {
-      "temperature" => params["temperature"],
-      "powerSave" => params["powerSave"]
-  }
-  File.open("views/thermostat.json","w") do |f|
-    f.write(jsonHash.to_json)
+    jsonHash = {
+      "temperature" => params["temperature"].to_i,
+      "powerSave" => is_true?(params["powerSave"])
+    }
+    File.open("views/thermostat.json","w") do |f|
+      f.write(jsonHash.to_json)
+    end
   end
+
+  def is_true?(string)
+    string == "true"
   end
+
 end
