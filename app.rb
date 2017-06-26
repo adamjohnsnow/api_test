@@ -32,6 +32,10 @@ class ThermostatApi < Sinatra::Base
     file.close
   end
 
+  get '/testcaptcha' do
+    erb('heroku_api_test')
+  end
+
   def is_true?(string)
     string == "true"
   end
