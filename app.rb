@@ -14,7 +14,6 @@ class ThermostatApi < Sinatra::Base
   post '/save_thermostat' do
     headers['Access-Control-Allow-Origin'] = '*'
     headers['Access-Control-Allow-Methods'] = 'POST'
-
     jsonHash = {
       "temperature" => params["temperature"].to_i,
       "powerSave" => is_true?(params["powerSave"])
@@ -24,6 +23,10 @@ class ThermostatApi < Sinatra::Base
     file.close
   end
 
+  get '/instagram/auth' do
+    redirect '/thermostat'
+  end
+  
   def is_true?(string)
     string == "true"
   end
