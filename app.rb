@@ -32,17 +32,16 @@ class ThermostatApi < Sinatra::Base
     file.close
   end
 
-<<<<<<< HEAD
+
   get '/instagram/auth' do
-    redirect '/thermostat'
-  end
-  
-=======
-  get '/testcaptcha' do
-    erb(:heroku_api_test)
+    redirect 'https://api.instagram.com/oauth/authorize/?client_id=a321c67b5c2e4494a2306e84976ea3d5&redirect_uri=https://snowdonia-remote-api.herokuapp.com/return&response_type=code&scope=public_content'
   end
 
->>>>>>> 119195e4c1cb9d4109b34ef7a940c039131d154a
+  get '/return' do
+    @auth = params[:code]
+    erb :auth
+  end
+
   def is_true?(string)
     string == "true"
   end
